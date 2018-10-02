@@ -1,0 +1,84 @@
+{
+  "name": "codespaces",
+  "version": "1.0.0",
+  "description": "CodeSpace - Bring Ctrl + Space into bitbucket",
+  "main": "index.js",
+  "scripts": {
+    "start": "cross-env NODE_ENV=development webpack -w",
+    "build": "cross-env NODE_ENV=production webpack",
+    "test": "jest"
+  },
+  "keywords": [],
+  "author": "Ninh Pham (ReeganExE)",
+  "license": "ISC",
+  "babel": {
+    "presets": [
+      "@babel/preset-react",
+      [
+        "@babel/preset-env",
+        {
+          "targets": {
+            "chrome": 60
+          }
+        }
+      ]
+    ],
+    "plugins": [
+      "@babel/plugin-proposal-object-rest-spread",
+      "@babel/plugin-proposal-class-properties",
+      [
+        "react-css-modules",
+        {
+          "generateScopedName": "ninhdeptrai.com-[hash:base64:6]"
+        }
+      ]
+    ]
+  },
+  "dependencies": {
+    "@reeganexe/react-fuzzy": "^0.6.0",
+    "lodash.debounce": "^4.0.8",
+    "lodash.find": "^4.6.0",
+    "lodash.get": "^4.4.2",
+    "react": "^16.5.2",
+    "react-dom": "^16.5.2",
+    "react-highlight-words": "^0.14.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.1.0",
+    "@babel/plugin-proposal-class-properties": "^7.1.0",
+    "@babel/plugin-proposal-object-rest-spread": "^7.0.0",
+    "@babel/preset-env": "^7.1.0",
+    "@babel/preset-react": "^7.0.0",
+    "babel-core": "^7.0.0-bridge.0",
+    "babel-eslint": "^10.0.0",
+    "babel-jest": "^23.6.0",
+    "babel-loader": "^8.0.2",
+    "babel-plugin-react-css-modules": "^3.4.2",
+    "copy-webpack-plugin": "^4.5.2",
+    "cross-env": "^5.2.0",
+    "css-loader": "^1.0.0",
+    "enzyme": "^3.6.0",
+    "enzyme-adapter-react-16": "^1.5.0",
+    "es6-dynamic-template": "^1.0.5",
+    "eslint": "^5.6.0",
+    "eslint-config-airbnb": "^17.1.0",
+    "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-jsx-a11y": "^6.1.1",
+    "eslint-plugin-react": "^7.11.1",
+    "identity-obj-proxy": "^3.0.0",
+    "jest": "^23.6.0",
+    "style-loader": "^0.23.0",
+    "terser-webpack-plugin": "^1.1.0",
+    "webpack": "^4.20.2",
+    "webpack-cli": "^3.1.1",
+    "webpack-extension-manifest-plugin": "^0.4.2",
+    "write-file-webpack-plugin": "^4.4.0"
+  },
+  "jest": {
+    "setupTestFrameworkScriptFile": "<rootDir>/tests/setup.js",
+    "moduleNameMapper": {
+      "\\.(jpg|png|gif|eot|otf|svg|ttf|woff|woff2)$": "identity-obj-proxy",
+      "\\.(css)$": "identity-obj-proxy"
+    }
+  }
+}
