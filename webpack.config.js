@@ -5,7 +5,7 @@ const Copy = require('copy-webpack-plugin');
 const Write = require('write-file-webpack-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
 const WebpackExtensionManifestPlugin = require('webpack-extension-manifest-plugin');
-const prepareManifest = require('./prepare-manifest');
+const prepareManifest = require('fill-tpl');
 
 const { env } = process;
 const DEV = env.NODE_ENV === 'development';
@@ -16,7 +16,7 @@ if (!env.BITBUCKET_ADDR || !env.BITBUCKET_ADDR.startsWith('http')) {
 }
 
 const strManifest = fs.readFileSync('./src/manifest.json');
-const manifest = JSON.parse(prepareManifest(strManifest));
+const manifest = JSON.parse(prepareManifest(strManifest).with(process.env));
 
 const pkg = {
   author: env.npm_package_author_name,
